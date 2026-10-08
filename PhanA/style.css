@@ -1,0 +1,243 @@
+:root {
+  --bg-color: #f4f6f9;
+  --card-bg: #ffffff;
+  --text-color: #1e293b;
+  --muted-color: #64748b;
+  --border-color: #cbd5e1;
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --fav-active: #e11d48;
+}
+
+body.dark-mode {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-color: #f8fafc;
+  --muted-color: #94a3b8;
+  --border-color: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fav-badge {
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(225, 29, 72, 0.1);
+  color: var(--fav-active);
+}
+
+/* Panel & Form */
+.panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.panel h2 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+.error-msg {
+  color: var(--danger);
+  font-size: 0.82rem;
+  min-height: 18px;
+  margin-top: 4px;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.search-box {
+  flex: 2 1 300px;
+}
+
+.search-box input, .filter-box select {
+  width: 100%;
+}
+
+.filter-box {
+  flex: 1 1 200px;
+}
+
+/* Status bar */
+.status-text {
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--muted-color);
+}
+
+.status-text.error {
+  color: var(--danger);
+}
+
+/* Lưới thẻ sách bằng Flexbox: 3 cột trên máy tính */
+.book-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.book-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.book-meta {
+  font-size: 0.9rem;
+  color: var(--muted-color);
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.btn-fav {
+  flex: 1;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.btn-fav.active {
+  background-color: var(--fav-active);
+  color: #fff;
+  border-color: var(--fav-active);
+}
+
+.btn-delete {
+  background-color: var(--danger);
+  color: #fff;
+  border: none;
+}
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted-color);
+  margin-top: 40px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Responsive: 1 cột trên điện thoại */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  .book-card {
+    flex: 0 0 100%;
+  }
+}
